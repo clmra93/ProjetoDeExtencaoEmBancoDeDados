@@ -83,3 +83,30 @@ def relatorio_mensal(request):
 
     # Renderizar o template com o contexto
     return render(request, 'relatorio_mensal.html', contexto)
+
+def quantidade_em_estoque(request):
+    produtos = Produto.objects.all()
+    return render(request, 'quantidade_em_estoque.html', {'produtos': produtos})
+
+
+def adicao_produtos_estoque(request):
+    if request.method == 'GET':
+        produto_ids = request.GET.getlist('produto')
+        quantidade = request.GET.getlist('quantidade')
+        preco = request.GET.getlist('preco')
+
+        try:
+            produto = Produto.objects.get(id=produto_ids)
+            total = 0
+
+            produto_estoque = Produto_estoque(produto=produto, total=total)
+            produto_estoque.save()
+
+            messages.success(request, 'Estoque atualizado com sucesso!')
+            return redirect('adicao_produtos_estoque.html') #Redireciona a página inicial
+        
+        except ValueError as e:
+            messages.error(request, f'Erro ao processar os dados: {e}')
+
+    produtos = Produto.objects.all()
+    return render(request, 'adicao_produtos_estoque.html', {'produtos': produtos})

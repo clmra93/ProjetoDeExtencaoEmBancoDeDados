@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Quantidade em Estoque</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Controle - Quantidade em estoque</h1>
+    </header>
+    <!-- <br> -->
+    <main>
+        <div class="main" class="div">
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade em estoque</th>
+                    <th>Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.nome_produto }}</td>
+                    <td>{{ produto.estoque }}</td>
+                    <td>{{ produto.preco }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+        <!-- <br> -->
+        <div class="div2">
+            <a href="{% url 'controle_estoque' %}">Voltar à página anterior</a>
+        </div>
+        <div class="div2">
+            <a href="{% url 'index' %}">Voltar à página principal</a>
+        </div>
+    </main>    
+</body>
+<footer class="footer">
+    <p class="p1">@Calummara - 2024</p>
+    <p class="p2">Sistema feito para realização de trabalho de extensão de curso superior.</p>
+</footer>
+</html>

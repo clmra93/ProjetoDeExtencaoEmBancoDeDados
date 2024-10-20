@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'calummara',
-        'USER': 'coloque_aqui_o_nome_do_usuário',
-        'PASSWORD': 'coloque_aqui_a_senha',
+        'USER': 'caroline',
+        'PASSWORD': '0903131761',
         'HOST': 'localhost',  # Ou o endereço do servidor de banco de dados
         'PORT': '5432',       # Porta padrão do PostgreSQL
     }
@@ -120,7 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    '/media/caroline/Novo volume/Documentos/SistemasDeInformacao/2Periodo/BancoDeDados/projExtBancoDeDados/calummara/static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
