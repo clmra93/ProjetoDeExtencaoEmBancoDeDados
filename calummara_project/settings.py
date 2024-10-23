@@ -123,7 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    '/media/caroline/Novo volume/Documentos/SistemasDeInformacao/2Periodo/BancoDeDados/projExtBancoDeDados/calummara/static',
+    BASE_DIR / 'calummara\static',
 ]
 
 # Default primary key field type
